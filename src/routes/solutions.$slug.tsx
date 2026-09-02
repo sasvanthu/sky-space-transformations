@@ -53,7 +53,7 @@ function SolutionNotFound() {
 function SolutionDetail() {
   const { solution } = Route.useLoaderData();
   const index = solutions.findIndex((s) => s.slug === solution.slug);
-  const next = solutions[(index + 1) % solutions.length];
+  const next = solutions[(index + 1) % solutions.length] ?? solutions[0]!;
 
   return (
     <main>

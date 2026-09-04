@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ClosingCta, Cta, Eyebrow, PageHero } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { products } from "@/data/products";
@@ -49,6 +49,8 @@ function ProductNotFound() {
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
+  const index = products.findIndex((p) => p.slug === product.slug);
+  const next = products[(index + 1) % products.length] ?? products[0]!;
 
   return (
     <main>
@@ -89,6 +91,23 @@ function ProductDetail() {
               <Cta to="/contact">Enquire about this range</Cta>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16">
+        <div className="shell flex flex-wrap items-center justify-between gap-6">
+          <Link
+            to="/products"
+            className="text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
+          >
+            &larr; All products
+          </Link>
+          <Link to="/products/$slug" params={{ slug: next.slug }} className="group text-right">
+            <span className="eyebrow text-accent">Next</span>
+            <span className="mt-2 block text-xl transition-transform duration-300 group-hover:-translate-x-1">
+              {next.name} &rarr;
+            </span>
+          </Link>
         </div>
       </section>
 

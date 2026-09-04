@@ -55,6 +55,9 @@ function ProductsPage() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {p.description}
                   </p>
+                  <span className="mt-4 inline-block text-xs uppercase tracking-[0.18em] text-accent transition-transform duration-300 group-hover:translate-x-1">
+                    View product &rarr;
+                  </span>
                 </Link>
               </Reveal>
             ))}

@@ -46,9 +46,9 @@ const ProductsIndexRoute = ProductsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsSlugRoute = ProductsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ProductsRoute,
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
@@ -56,9 +56,9 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ProjectsRoute,
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
   id: '/solutions/',
@@ -66,9 +66,9 @@ const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => SolutionsRoute,
+  id: '/solutions/$slug',
+  path: '/solutions/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -152,6 +152,9 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ApproachRoute: typeof ApproachRoute
   ContactRoute: typeof ContactRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+  SolutionsSlugRoute: typeof SolutionsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
   SolutionsIndexRoute: typeof SolutionsIndexRoute
@@ -196,10 +199,10 @@ declare module '@tanstack/react-router' {
     }
     '/products/$slug': {
       id: '/products/$slug'
-      path: '/$slug'
+      path: '/products/$slug'
       fullPath: '/products/$slug'
       preLoaderRoute: typeof ProductsSlugRouteImport
-      parentRoute: typeof ProductsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/projects/': {
       id: '/projects/'
@@ -210,10 +213,10 @@ declare module '@tanstack/react-router' {
     }
     '/projects/$slug': {
       id: '/projects/$slug'
-      path: '/$slug'
+      path: '/projects/$slug'
       fullPath: '/projects/$slug'
       preLoaderRoute: typeof ProjectsSlugRouteImport
-      parentRoute: typeof ProjectsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/solutions/': {
       id: '/solutions/'
@@ -224,10 +227,10 @@ declare module '@tanstack/react-router' {
     }
     '/solutions/$slug': {
       id: '/solutions/$slug'
-      path: '/$slug'
+      path: '/solutions/$slug'
       fullPath: '/solutions/$slug'
       preLoaderRoute: typeof SolutionsSlugRouteImport
-      parentRoute: typeof SolutionsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -237,6 +240,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ApproachRoute: ApproachRoute,
   ContactRoute: ContactRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
+  SolutionsSlugRoute: SolutionsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
   SolutionsIndexRoute: SolutionsIndexRoute,

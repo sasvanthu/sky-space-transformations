@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { products } from "@/data/products";
 import hero from "@/assets/materials.jpg";
 
-export const Route = createFileRoute("/products")({
+export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
       { title: "Products — Roof Systems & Elements | SKY SPACE" },

@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { projects } from "@/data/projects";
 import hero from "@/assets/after-rooftop.jpg";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects — Rooftop Transformations | SKY SPACE" },

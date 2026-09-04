@@ -6,7 +6,7 @@ import { solutionFilters, solutions } from "@/data/solutions";
 import { cn } from "@/lib/utils";
 import hero from "@/assets/sol-luxury.jpg";
 
-export const Route = createFileRoute("/solutions")({
+export const Route = createFileRoute("/solutions/")({
   head: () => ({
     meta: [
       { title: "Solutions — 20 Ways to Use a Roof | SKY SPACE" },
